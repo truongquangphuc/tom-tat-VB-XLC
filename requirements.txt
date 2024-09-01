@@ -8,3 +8,4 @@ langchain_community
 langchain_groq
 python_dotenv
 gtts
+pypdf
