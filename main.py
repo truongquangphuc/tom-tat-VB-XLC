@@ -14,7 +14,7 @@ from gtts import gTTS
 
 # Load environment variables
 load_dotenv()
-os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
+os.environ['GROQ_API_KEY'] = st.secrets["GROQ_API_KEY"]
 
 # Initialize the language model
 llm = ChatGroq(model='llama3-70b-8192')
