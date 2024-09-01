@@ -16,7 +16,7 @@ HEADERS = {
 }
 
 # Lấy refresh_token từ biến môi trường
-refresh_token = os.getenv('REFRESH_TOKEN')
+refresh_token = st.secrets["REFRESH_TOKEN"]
 
 class ApiClient:
     def __init__(self, username, password):
@@ -65,9 +65,9 @@ class ApiClient:
             data = response.json()
             
             # Cập nhật refresh_token nếu có giá trị mới và lưu vào .env
-            new_refresh_token = data.get('data', {}).get('refresh_token')
-            if new_refresh_token and new_refresh_token != refresh_token:
-                self.update_refresh_token(new_refresh_token)
+            #new_refresh_token = data.get('data', {}).get('refresh_token')
+            #if new_refresh_token and new_refresh_token != refresh_token:
+                #self.update_refresh_token(new_refresh_token)
             
             return data
         except requests.RequestException as e:
