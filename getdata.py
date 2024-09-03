@@ -158,12 +158,7 @@ class ApiClient:
             method='POST'
         )
         
-        if response.get("success"):
-            data_list = [item for item in response.get("data", []) if item.get('nguoi_xu_ly_chinh') and ho_va_ten_can_bo in item['nguoi_xu_ly_chinh']]
-            sorted_data = sorted(data_list, key=lambda x: x.get('ngay_den', ''), reverse=True)
-            return sorted_data
-        else:
-            return {"error": f"Lỗi: {response.get('message')}"}
+        return response.get("data", [])
 
 def file_name(path):
     """Trích xuất tên tệp từ đường dẫn."""
